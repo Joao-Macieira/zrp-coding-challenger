@@ -15,7 +15,9 @@ export class PokemonOutputMapper {
       id: entity.id,
       abilities: entity.abilities,
       name: entity.name,
-      sprites: entity.sprites,
+      sprites: {
+        front_default: entity.sprites.front_default,
+      },
     };
   }
 }

@@ -4,7 +4,7 @@ import {
   InternalServerErrorException,
   NotFoundException,
 } from '@nestjs/common';
-import { env } from 'src/shared/config/env';
+import { env } from '../../shared/config/env';
 import { PokemonOutputMapper } from './dto/pokemon.dto';
 import { Pokemon } from './entities/pokemon.entity';
 
@@ -27,7 +27,7 @@ export class PokemonsService {
 
       return PokemonOutputMapper.toOutput(pokemon);
     } catch (error) {
-      if (error?.response?.status === 404) {
+      if (error.response.status === 404) {
         throw new NotFoundException('Pokemon not found');
       }
 
