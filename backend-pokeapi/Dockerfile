@@ -1,13 +1,30 @@
-FROM node:18.13.0-alpine AS build
+FROM node:18.13.0 as builder
 
-WORKDIR /app
+# Create app directory
+WORKDIR /usr/src/app
 
-COPY package*.json ./
+# Install app dependencies
+COPY package.json yarn.lock ./
 
-RUN yarn add
+RUN yarn install --frozen-lockfile
 
 COPY . .
 
-EXPOSE 3000
+RUN yarn build
 
-CMD ["yarn", "start:prod"]
+FROM node:18.13.0-slim
+
+ENV NODE_ENV production
+USER node
+
+# Create app directory
+WORKDIR /usr/src/app
+
+# Install app dependencies
+COPY package.json yarn.lock ./
+
+RUN yarn install --production --frozen-lockfile
+
+COPY --from=builder /usr/src/app/dist ./dist
+
+CMD [ "node", "dist/main.js" ]
