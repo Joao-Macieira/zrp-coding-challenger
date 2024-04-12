@@ -1,5 +1,5 @@
 /* eslint-disable react/require-default-props */
-import { cn } from '../../../utils/cn';
+import { cn } from '../../../app/utils/cn';
 
 interface ISpinnerProps {
   className?: string;

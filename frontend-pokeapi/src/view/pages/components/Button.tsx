@@ -2,7 +2,7 @@
 /* eslint-disable react/require-default-props */
 import { ComponentProps } from 'react';
 
-import { cn } from '../../../utils/cn';
+import { cn } from '../../../app/utils/cn';
 
 import { Spinner } from './Spinner';
 
@@ -24,10 +24,10 @@ export function Button({
       {...props}
       disabled={isLoading ?? disabled}
       className={cn(
-        'bg-primary-600 hover:bg-primary-700 flex h-12 items-center justify-center rounded-2xl px-6 font-medium text-white transition-all disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-400',
+        'flex h-12 items-center justify-center rounded-2xl bg-[#3761A8] px-6 font-medium text-white transition-all hover:bg-[#1B3778] disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-400',
         variant === 'danger' && 'bg-red-600 hover:bg-red-700',
         variant === 'ghost' &&
-          'text-primary-600 border-primary-600 hover:bg-primary-600/5 border bg-transparent',
+          'border border-white bg-transparent text-white hover:border-[#3761A8] hover:bg-[#3761A8]',
         className,
       )}
     >

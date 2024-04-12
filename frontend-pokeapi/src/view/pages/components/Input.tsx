@@ -2,7 +2,7 @@
 import { XCircle } from 'lucide-react';
 import { ComponentProps, forwardRef } from 'react';
 
-import { cn } from '../../../utils/cn';
+import { cn } from '../../../app/utils/cn';
 
 interface IInputProps extends ComponentProps<'input'> {
   name: string;
