@@ -17,7 +17,7 @@ export function Home() {
       </header>
 
       <div className="mt-10 flex w-full justify-center">
-        <form className="flex w-[50%] gap-4" onClick={handleSubmit}>
+        <form className="flex w-[50%] gap-4" onSubmit={handleSubmit}>
           <Input
             placeholder="Nome do pokemon"
             {...register('searchText')}
