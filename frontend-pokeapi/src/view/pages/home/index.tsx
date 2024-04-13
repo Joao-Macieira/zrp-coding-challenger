@@ -17,16 +17,16 @@ export function Home() {
       </header>
 
       <div className="mt-10 flex w-full justify-center">
-        <div className="flex w-[50%] gap-4">
+        <form className="flex w-[50%] gap-4" onClick={handleSubmit}>
           <Input
             placeholder="Nome do pokemon"
             {...register('searchText')}
             error={errors.searchText?.message}
           />
-          <Button onClick={handleSubmit} variant="ghost" disabled={isLoading}>
+          <Button type='submit' variant="ghost" disabled={isLoading}>
             {isLoading ? <Spinner /> : 'Pesquisar'}
           </Button>
-        </div>
+        </form>
       </div>
 
       <div className="mt-10 flex w-full justify-center">
