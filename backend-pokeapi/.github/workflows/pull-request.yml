@@ -1,0 +1,29 @@
+name: PR-CI
+
+on:
+  pull_request:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout/@v3
+
+      - name: Setup NodeJs
+        uses: actions/setup-node@v3
+        with:
+         node-version: '16.X'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Run tests
+        env:
+          TOKEN_SECRET: 'abc'
+          TOKEN_ACCESS_EXPIRATION: '10min'
+          TOKEN_ACTIVE_ACCOUNT_EXPIRATION: '10min'
+          TOKEN_RECOVERY_EXPIRATION: '5min'
+        run: npm run test:cov
