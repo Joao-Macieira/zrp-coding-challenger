@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  app_backend:
+    build: ./backend-pokeapi
+    env_file:
+      - ./backend-pokeapi/.env
+    ports:
+      - '3000:3000'
+    tty: true
+  app_frontend:
+    build: ./frontend-pokeapi
+    env_file:
+      - ./frontend-pokeapi/.env
+    ports:
+      - '5173:5173'
+    tty: true
