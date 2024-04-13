@@ -7,6 +7,6 @@ export class PokemonsController {
 
   @Get(':name')
   findOneByName(@Param('name') name: string) {
-    return this.pokemonsService.findOnebyName(name);
+    return this.pokemonsService.findOnebyName(name.toLowerCase());
   }
 }
