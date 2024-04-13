@@ -70,6 +70,14 @@ yarn dev
 
 Após iniciar o servidor, você pode acessar o frontend em `http://localhost:5173` no seu navegador.
 
+#### Todos os Projetos Juntos
+
+Caso queira rodar todos os projetos juntos, na própria pasta do projeto temos um arquivo docker-compose, onde basta rodar o comando abaixo para a aplicação rodar:
+
+```bash
+docker-compose up -d --build
+```
+
 ## Contribuição
 
 Contribuições são bem-vindas! Para sugestões, melhorias ou correções, sinta-se à vontade para abrir uma issue ou enviar um pull request.
